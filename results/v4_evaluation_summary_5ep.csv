@@ -1,0 +1,5 @@
+algo,episodes,success_count,success_rate_%,collision_count,collision_rate_%,off_path_count,off_path_rate_%,timeout_count,timeout_rate_%,avg_reward,avg_steps,avg_final_goal_dist,best_final_goal_dist,avg_cross_track_error,avg_progress_ratio,best_progress_ratio
+a2c,5,2,40.0,3,60.0,0,0.0,0,0.0,-153.65,159.0,1.66,0.29,0.1,0.61,1.0
+dqn,5,2,40.0,2,40.0,0,0.0,1,20.0,11.25,372.8,1.06,0.29,0.08,0.74,0.94
+ppo,5,3,60.0,1,20.0,0,0.0,1,20.0,-153.63,358.0,0.42,0.29,0.35,0.95,1.0
+qlearning,5,0,0.0,2,40.0,1,20.0,2,40.0,-620.95,481.8,2.29,1.58,0.59,0.52,0.65

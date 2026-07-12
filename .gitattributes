@@ -1,0 +1,4 @@
+* text=auto eol=lf
+*.pgm binary
+*.zip binary
+*.pkl binary

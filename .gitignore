@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+rl_venv/
+
+# ROS2 generated folders
+build/
+install/
+log/
+
+# Runtime data
+.gazebo/
+*.bag
+*.db3
+
+# TensorBoard
+events.out.tfevents*
+results/tb_logs*/
+results/**/events.out.tfevents*
+
+# Runtime logs
+results/*.log
+
+# Local backup copies
+final_results_backup_*/
+
+# Large demo videos are stored externally
+media/*.webm
+media/*.mp4
+media/*.mkv
+media/*.avi
+
+# Editors and operating-system files
+.vscode/
+.idea/
+.DS_Store
+*~
+
+# Intermediate and duplicate evaluation results
+results/dqn_saved_nav2_path*
+results/a2c_v4_evaluation_metrics.csv
+results/dqn_v4_evaluation_metrics.csv
+results/ppo_v4_evaluation_metrics.csv
+results/qlearning_v4_evaluation_metrics.csv
+results/v4_evaluation_summary.csv
