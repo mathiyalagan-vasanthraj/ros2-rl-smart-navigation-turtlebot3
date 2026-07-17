@@ -1,3 +1,8 @@
+> **Status update:** The planned real TurtleBot3 proof of concept was
+> completed. DQN, A2C and PPO were deployed using AMCL localization,
+> a saved Nav2 path and a LiDAR safety layer. Actual results are reported
+> in [REAL_HARDWARE_RESULTS.md](REAL_HARDWARE_RESULTS.md).
+
 # Real TurtleBot3 Test Plan
 
 ## Purpose

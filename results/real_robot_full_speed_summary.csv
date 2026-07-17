@@ -1,0 +1,8 @@
+algorithm,leg,run_id,result,final_status,elapsed_s,planned_path_m,travelled_m,path_efficiency,final_goal_distance_m,path_progress,mean_cte_m,max_cte_m,min_lidar_m,min_front_clearance_m,near_collision_steps,critical_clearance_steps,collision_proxy_events,stuck_events,notes
+DQN,forward,20260715_161700_dqn_20260715_161656_forward,success,goal_reached,109.141,3.351,4.435,0.7556,0.2994,0.9131,0.1251,0.2227,0.150,0.150,7,2,0,5,"Successful forward run with precise path tracking"
+DQN,return,20260715_161924_dqn_20260715_161656_return,failure,front_recovery,9.730,3.351,0.228,,1.8850,0.0719,0.2370,0.2540,0.150,0.150,,,0,,"Policy and recovery rotations conflicted; return run stopped"
+DQN,forward_repeat,20260715_163533_dqn_20260715_163529_forward,failure,front_slowdown,49.960,3.351,2.594,,0.7920,0.6446,0.0871,0.1460,0.160,0.185,3,1,0,4,"Repeated right-turn behavior and stalled before the goal"
+A2C,forward,20260715_162410_a2c_20260715_162402_forward,success,goal_reached,116.848,3.351,9.494,0.3530,0.2959,0.9057,0.2181,0.8329,0.170,0.215,10,0,0,9,"Reached goal but travelled a substantially longer trajectory than planned"
+A2C,return,20260715_162639_a2c_20260715_162402_return,success,goal_reached,44.895,3.351,4.526,0.7405,0.2967,0.9373,0.1511,0.3810,0.169,0.238,6,0,0,4,"Successful return run"
+PPO,forward,20260715_162941_ppo_20260715_162936_forward,success,goal_reached,64.302,3.351,5.009,0.6691,0.3000,0.9057,0.2091,0.6464,0.190,0.228,7,0,0,5,"Successful and faster than the other successful forward trials"
+PPO,return,20260715_163118_ppo_20260715_162936_return,success,goal_reached,62.378,3.351,4.101,0.8172,0.2992,0.9149,0.2807,0.6096,0.203,0.241,12,0,0,6,"Successful return with the best recorded path efficiency"

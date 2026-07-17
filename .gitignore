@@ -46,3 +46,27 @@ results/dqn_v4_evaluation_metrics.csv
 results/ppo_v4_evaluation_metrics.csv
 results/qlearning_v4_evaluation_metrics.csv
 results/v4_evaluation_summary.csv
+
+# Real TurtleBot3 raw runtime data
+# Canonical summarized results will be committed separately.
+results/real_experiments/
+results/real_tests/
+results/full_speed_checks/
+results/current_real_test_id.txt
+
+# Duplicate runtime copies of canonical path files
+results/real_global_path.csv
+results/real_goal_pose.csv
+paths/real_tests/
+
+# Archived and duplicate real-map copies
+maps/archive_*/
+
+# Real-hardware development backups
+scripts/*backup*
+scripts/*before_tf_fix*
+scripts/*before_recovery*
+scripts/*.backup
+
+# Temporary package metadata backups
+setup.py.before_*

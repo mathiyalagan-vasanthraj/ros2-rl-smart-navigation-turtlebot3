@@ -3,10 +3,12 @@
   <name>nav2_rl_project</name>
   <version>1.0.0</version>
   <description>
-    Reinforcement learning based local navigation controller for TurtleBot3 using a saved Nav2 global path in a dynamic Gazebo environment.
+    Reinforcement-learning local navigation for TurtleBot3 using Nav2 global paths in Gazebo simulation and on real hardware.
   </description>
 
   <maintainer email="vasanmathi1999@gmail.com">Mathiyalagan Vasantharaj</maintainer>
+<author>Mathiyalagan Vasantharaj</author>
+<author>Isaac Vivin Moses</author>
   <license>MIT</license>
 
   <buildtool_depend>ament_python</buildtool_depend>
@@ -14,6 +16,7 @@
   <exec_depend>rclpy</exec_depend>
   <exec_depend>geometry_msgs</exec_depend>
   <exec_depend>nav_msgs</exec_depend>
+  <exec_depend>nav2_msgs</exec_depend>
   <exec_depend>sensor_msgs</exec_depend>
   <exec_depend>gazebo_msgs</exec_depend>
   <exec_depend>std_srvs</exec_depend>
