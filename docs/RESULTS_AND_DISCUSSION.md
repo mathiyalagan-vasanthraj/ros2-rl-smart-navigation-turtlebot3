@@ -32,7 +32,27 @@ A2C achieved the best overall performance with the highest success rate and no t
 
 ## Final Ranking
 
-1. A2C - best overall performance
-2. DQN - safest and most path-stable
-3. PPO - aggressive but unsafe
-4. Q-learning - weakest baseline
+Based on the final 20-episode simulation evaluation:
+
+1. **A2C** — highest simulation success rate at 75%.
+2. **DQN** — lowest simulation collision rate and lowest average
+   cross-track error, but with frequent timeout episodes.
+3. **PPO** — aggressive behavior with a high simulation collision rate.
+4. **Q-learning** — weakest baseline for the continuous dynamic
+   navigation task.
+
+## Real TurtleBot3 Deployment
+
+The three Stable-Baselines3 policies were also tested on a physical
+TurtleBot3 Burger. A2C and PPO completed forward and return paths. DQN
+completed one forward run but did not complete the return or a later
+forward repetition.
+
+PPO achieved the best observed completed round trip, requiring 126.68 s
+and 9.11 m of travel. A2C required 161.74 s and 14.02 m.
+
+These hardware trials demonstrate successful deployment but do not provide
+enough repeated experiments to calculate statistically reliable real-world
+success rates.
+
+See [REAL_HARDWARE_RESULTS.md](REAL_HARDWARE_RESULTS.md).

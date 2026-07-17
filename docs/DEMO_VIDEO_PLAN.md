@@ -6,8 +6,8 @@
 2. A2C simulation demo
 3. DQN simulation demo
 4. Final result summary
-5. Optional real TurtleBot3 A2C rollout
-6. Optional real TurtleBot3 DQN rollout
+5. Real TurtleBot3 A2C rollout
+6. Real TurtleBot3 DQN rollout
 
 ## Video 1: Environment Overview
 
@@ -46,7 +46,7 @@ Suggested explanation:
 
 The final 20-episode evaluation shows A2C as the best overall algorithm, DQN as the safest controller, PPO as aggressive but risky, and Q-learning as the weakest baseline.
 
-## Optional Real Robot Videos
+## Real TurtleBot3 Videos
 
 Test only:
 - A2C

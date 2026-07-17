@@ -1,0 +1,4 @@
+algorithm,forward_completed,return_completed,legs_completed,total_elapsed_s,total_planned_path_m,total_travelled_m,combined_path_efficiency,conclusion
+DQN,true,false,1/2,,,,"","One successful forward run; complete round trip not achieved"
+A2C,true,true,2/2,161.743,6.702,14.020,0.4780,"Completed round trip but forward path was inefficient"
+PPO,true,true,2/2,126.680,6.702,9.110,0.7357,"Fastest and most distance-efficient completed round trip"
