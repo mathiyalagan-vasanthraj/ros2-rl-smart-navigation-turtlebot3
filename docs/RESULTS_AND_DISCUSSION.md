@@ -32,10 +32,15 @@ A2C achieved the best overall performance with the highest success rate and no t
 
 ## Final Ranking
 
-1. A2C - best overall performance
-2. DQN - lowest simulation collision rate and cross-track error, but with frequent timeouts
-3. PPO - aggressive behavior with a high simulation collision rate
-4. Q-learning - weakest baseline
+Based on the final 20-episode simulation evaluation:
+
+1. **A2C** — highest simulation success rate at 75%.
+2. **DQN** — lowest simulation collision rate and lowest average
+   cross-track error, but with frequent timeout episodes.
+3. **PPO** — aggressive behavior with a high simulation collision rate.
+4. **Q-learning** — weakest baseline for the continuous dynamic
+   navigation task.
+
 ## Real TurtleBot3 Deployment
 
 The three Stable-Baselines3 policies were also tested on a physical
