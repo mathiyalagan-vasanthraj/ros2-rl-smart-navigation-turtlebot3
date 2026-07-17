@@ -60,7 +60,9 @@ real-world limit.
 ```bash
 pkill -INT -f '[r]un_real_policy_v4.py'
 
-timeout 2 ros2 topic pub -r 20           /cmd_vel geometry_msgs/msg/Twist           "{linear: {x: 0.0}, angular: {z: 0.0}}"
+timeout 2 ros2 topic pub -r 20 \
+  /cmd_vel geometry_msgs/msg/Twist \
+  "{linear: {x: 0.0}, angular: {z: 0.0}}"
 ```
 
 ## Interpretation

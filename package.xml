@@ -7,8 +7,8 @@
   </description>
 
   <maintainer email="vasanmathi1999@gmail.com">Mathiyalagan Vasantharaj</maintainer>
-<author>Mathiyalagan Vasantharaj</author>
-<author>Isaac Vivin Moses</author>
+  <author>Mathiyalagan Vasantharaj</author>
+  <author>Isaac Vivin Moses</author>
   <license>MIT</license>
 
   <buildtool_depend>ament_python</buildtool_depend>

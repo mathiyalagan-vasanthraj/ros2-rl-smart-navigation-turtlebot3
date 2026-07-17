@@ -26,7 +26,7 @@
 2. Start AMCL.
 3. Set the initial pose in RViz.
 4. Run Nav2 `planner_server`.
-5. select a goal in RViz.
+5. Select a goal in RViz.
 6. Save the global planner output as a CSV path.
 7. Create a reversed CSV for the return leg.
 

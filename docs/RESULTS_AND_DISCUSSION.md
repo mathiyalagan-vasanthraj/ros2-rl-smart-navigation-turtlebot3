@@ -33,8 +33,8 @@ A2C achieved the best overall performance with the highest success rate and no t
 ## Final Ranking
 
 1. A2C - best overall performance
-2. DQN - safest and most path-stable
-3. PPO - aggressive but unsafe
+2. DQN - lowest simulation collision rate and cross-track error, but with frequent timeouts
+3. PPO - aggressive behavior with a high simulation collision rate
 4. Q-learning - weakest baseline
 ## Real TurtleBot3 Deployment
 

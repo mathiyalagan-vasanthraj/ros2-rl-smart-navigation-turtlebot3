@@ -48,13 +48,19 @@ Expected `/cmd_vel` state before the policy starts:
 ## Example experiment command
 
 ```bash
-bash scripts/run_real_experiment.sh           dqn           results/dqn_v4_nav2path_local_controller.zip           paths/real_global_path_latest.csv           dqn_forward
+bash scripts/run_real_experiment.sh \
+  dqn \
+  results/dqn_v4_nav2path_local_controller.zip \
+  paths/real_global_path_latest.csv \
+  dqn_forward
 ```
 
 ## Example round trip
 
 ```bash
-bash scripts/run_real_round_trip.sh           ppo           results/ppo_v4_nav2path_local_controller.zip
+bash scripts/run_real_round_trip.sh \
+  ppo \
+  results/ppo_v4_nav2path_local_controller.zip
 ```
 
 ## Data policy

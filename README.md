@@ -80,7 +80,12 @@ Saved SLAM Map
 
 ## Main Findings
 
-A2C achieved the best overall simulation result with the highest success rate. DQN recorded the lowest simulation collision rate and the lowest average cross-track error, but it also produced several near-goal timeouts. PPO showed aggressive behavior and a high simulation collision rate. Q-learning was the weakest baseline because its discretized state representation was not sufficient for continuous navigation with dynamic obstacles.
+In the final 20-episode simulation evaluation, A2C achieved the
+highest success rate at 75%. DQN recorded the lowest collision rate
+and the lowest average cross-track error, although 40% of its episodes
+ended in timeout. PPO showed aggressive behavior and a high simulation
+collision rate. Tabular Q-learning was the weakest baseline in the
+continuous dynamic-navigation task.
 
 ## Repository Structure
 
@@ -103,31 +108,36 @@ nav2_rl_project/
 
 ### Simulation
 
-- `scripts/train_stage4_nav2path_all_algorithms_v4.py` - final training script
-- `scripts/evaluate_stage4_nav2path_v4.py` - final simulation evaluation
-- `scripts/save_global_path_from_rviz.py` - saves the Nav2 global path
+- `scripts/train_stage4_nav2path_all_algorithms_v4.py` — final training script
+- `scripts/evaluate_stage4_nav2path_v4.py` — final simulation evaluation
+- `scripts/save_global_path_from_rviz.py` — saves the Nav2 global path
+- `scripts/run_policy_demo_v4.py` — deterministic policy demonstration
 
 ### Real TurtleBot3
 
-- `scripts/run_real_policy_v4.py` - executes DQN, A2C or PPO on the robot
-- `scripts/run_real_experiment.sh` - records one controlled hardware trial
-- `scripts/run_real_round_trip.sh` - executes forward and return trials
-- `scripts/run_all_models_full_speed.sh` - full-speed model test helper
-- `scripts/analyze_real_test.py` - computes real-test metrics
-- `scripts/rviz_goal_to_nav2_path.py` - saves the real Nav2 global path
-- `scripts/normalize_real_scan.py` - publishes the normalized scan
-- `scripts/safe_real_motion_test.py` - controlled hardware motion test
-- `scripts/test_real_policy_inputs_v4.py` - validates policy inputs
+- `scripts/run_real_policy_v4.py` — executes DQN, A2C or PPO on hardware
+- `scripts/run_real_experiment.sh` — records one controlled hardware trial
+- `scripts/run_real_round_trip.sh` — executes forward and return trials
+- `scripts/run_all_models_full_speed.sh` — validates and runs the deep-RL models
+- `scripts/analyze_real_test.py` — computes hardware-test metrics
+- `scripts/rviz_goal_to_nav2_path.py` — saves the real Nav2 global path
+- `scripts/normalize_real_scan.py` — publishes a normalized LiDAR scan
+- `scripts/safe_real_motion_test.py` — performs a controlled motion test
+- `scripts/test_real_policy_inputs_v4.py` — validates policy observations
 
 ## Important Results
 
-### Simulation
+### Final simulation evaluation
 
-- `results/v4_evaluation_summary.csv`
-- `results/dqn_v4_evaluation_metrics.csv`
-- `results/ppo_v4_evaluation_metrics.csv`
-- `results/a2c_v4_evaluation_metrics.csv`
-- `results/qlearning_v4_evaluation_metrics.csv`
+- `results/v4_evaluation_summary_20ep_final.csv`
+- `results/dqn_v4_evaluation_metrics_20ep_final.csv`
+- `results/ppo_v4_evaluation_metrics_20ep_final.csv`
+- `results/a2c_v4_evaluation_metrics_20ep_final.csv`
+- `results/qlearning_v4_evaluation_metrics_20ep_final.csv`
+
+The earlier five-episode pilot is retained separately as:
+
+- `results/v4_evaluation_summary_5ep.csv`
 
 ### Real TurtleBot3
 
@@ -137,12 +147,13 @@ nav2_rl_project/
 
 ## Demo Videos
 
-Simulation and real TurtleBot3 video links are listed in:
+Simulation and real TurtleBot3 demonstrations are stored externally
+so that large video files do not increase the Git repository size.
 
-[Demo Video Links](media/DEMO_VIDEO_LINKS.md)
+See [Demo Video Links](media/DEMO_VIDEO_LINKS.md).
 
-The real-hardware demonstration is part of the completed project rather
-than an optional future task.
+The real-hardware demonstration is a completed part of this project,
+not a future or optional implementation.
 
 ## Real TurtleBot3 Hardware Implementation
 
@@ -213,15 +224,16 @@ Detailed documentation:
 
 ## Future Improvements
 
-- Use domain randomization and sensor-noise randomization.
-- Train on multiple maps and start-goal pairs.
-- Replace simulation ground-truth dynamic-obstacle distance with a
+- Train with domain randomization and randomized sensor noise.
+- Train on multiple maps and different start-goal combinations.
+- Replace simulation ground-truth obstacle distance with a
   perception-only representation.
 - Improve DQN near-goal behavior and reduce timeout episodes.
-- Reduce A2C oscillation and unnecessary path length.
+- Reduce A2C oscillation and unnecessary travel distance.
 - Integrate the RL controller as a Nav2 local-planner plugin.
-- Add contact sensing and a dedicated hardware emergency-stop device.
-- Repeat hardware testing over more trials for statistical confidence.
+- Add a physical emergency-stop device and contact sensing.
+- Repeat hardware trials under controlled conditions to obtain
+  statistically meaningful real-world results.
 
 ## Authors
 
