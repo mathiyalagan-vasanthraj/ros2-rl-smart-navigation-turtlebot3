@@ -235,9 +235,7 @@ The complete terminal-by-terminal commands are documented in:
 - `results/a2c_v4_evaluation_metrics_20ep_final.csv`
 - `results/qlearning_v4_evaluation_metrics_20ep_final.csv`
 
-The earlier five-episode pilot is retained separately as:
 
-- `results/v4_evaluation_summary_5ep.csv`
 
 ### Real TurtleBot3
 
@@ -334,6 +332,12 @@ Detailed documentation:
 - Add a physical emergency-stop device and contact sensing.
 - Repeat hardware trials under controlled conditions to obtain
   statistically meaningful real-world results.
+
+## Final Report
+
+The final IEEE-format project report is available here:
+
+- [TurtleBot3 RL Final Report](docs/final-report/TurtleBot3_RL_Final_Report_Submission.pdf)
 
 ## Authors
 
