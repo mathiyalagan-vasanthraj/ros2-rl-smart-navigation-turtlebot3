@@ -1,9 +1,9 @@
-# Reinforcement Learning for Smart TurtleBot3 Navigation
+# A Controlled Comparative Study of Reinforcement Learning Algorithms for Dynamic Obstacle-Aware TurtleBot3 Navigation
 
 Course: Case Study ROS Robot Programming
-Project: Reinforcement Learning for Smart Navigation
+Project: Comparative Study of Reinforcement Learning Algorithms for TurtleBot3 Navigation
 Robot: TurtleBot3 Burger
-Framework: ROS2 Humble, Gazebo, Nav2, Stable-Baselines3, TurtleBot3 hardware
+Framework: ROS 2 Humble, Gazebo, Nav2, Stable-Baselines3, TurtleBot3 hardware
 Algorithms: DQN, PPO, A2C, Q-learning
 
 ## Course Requirements Coverage
@@ -45,7 +45,7 @@ Saved SLAM Map
 |---|---|
 | Robot | TurtleBot3 Burger |
 | Simulator | Gazebo |
-| ROS version | ROS2 Humble |
+| ROS version | ROS 2 Humble |
 | Environment | TurtleBot3 Stage-4 dynamic world |
 | Saved path points | 180 |
 | Path length | 4.52 m |
@@ -55,10 +55,27 @@ Saved SLAM Map
 
 ## Algorithms Compared
 
-1. DQN - Deep Q-Network
-2. PPO - Proximal Policy Optimization
-3. A2C - Advantage Actor-Critic
-4. Q-learning - Tabular baseline
+The three deep-reinforcement-learning methods use the same
+32-dimensional observation and seven discrete motion actions.
+
+### Principal comparison
+
+- **DQN — Deep Q-Network:** an off-policy, value-based deep-RL method that directly supports the seven discrete actions.
+- **PPO — Proximal Policy Optimization:** an on-policy actor–critic method that learns a stochastic action policy using clipped policy updates.
+
+### Additional deep-RL reference
+
+- **A2C — Advantage Actor-Critic:** a synchronous actor–critic method evaluated with the same deep-policy observation and action spaces.
+
+### Classical baseline
+
+- **Tabular Q-learning:** a non-neural reference used to demonstrate the limitations of coarse state discretization in a continuous LiDAR-navigation problem.
+
+DQN and PPO form the principal value-based versus policy-based comparison.
+A2C provides an additional actor–critic reference. Tabular Q-learning is
+treated as a contextual baseline because it uses a reduced discretized state
+and an episode-based training budget rather than the complete deep-policy
+observation.
 
 ## Training Setup
 
@@ -71,12 +88,12 @@ Saved SLAM Map
 
 ## Final 20-Episode Evaluation Results
 
-| Rank | Algorithm | Success Rate | Collision Rate | Timeout Rate | Avg Reward | Avg Final Distance | Avg Cross-Track Error | Avg Progress |
-|---:|---|---:|---:|---:|---:|---:|---:|---:|
-| 1 | A2C | 75% | 25% | 0% | 178.99 | 0.61 m | 0.27 m | 0.89 |
-| 2 | DQN | 50% | 10% | 40% | 121.83 | 0.61 m | 0.07 m | 0.86 |
-| 3 | PPO | 35% | 65% | 0% | -254.81 | 1.06 m | 0.34 m | 0.79 |
-| 4 | Q-learning | 5% | 60% | 30% | -601.90 | 2.14 m | 0.45 m | 0.50 |
+| Rank | Algorithm | Success | Collision | Timeout | Off-Path | Avg. Reward | Avg. Final Distance | Mean CTE | Avg. Progress |
+|---:|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| 1 | A2C | 75% | 25% | 0% | 0% | 178.99 | 0.61 m | 0.27 m | 0.89 |
+| 2 | DQN | 50% | 10% | 40% | 0% | 121.83 | 0.61 m | 0.07 m | 0.86 |
+| 3 | PPO | 35% | 65% | 0% | 0% | -254.81 | 1.06 m | 0.34 m | 0.79 |
+| 4 | Q-learning | 5% | 60% | 30% | 5% | -601.90 | 2.14 m | 0.45 m | 0.50 |
 
 ## Main Findings
 
@@ -103,6 +120,89 @@ nav2_rl_project/
 ├── setup.py
 ├── requirements.txt
 └── README.md
+
+## Quick Start and Reproducibility
+
+### Prerequisites
+
+The project was developed and tested with:
+
+- Ubuntu 22.04
+- ROS 2 Humble
+- Gazebo Classic
+- Python 3.10
+- TurtleBot3 Burger packages
+- Navigation2
+- SLAM Toolbox
+
+### Clone the repository
+
+```bash
+git clone https://github.com/mathiyalagan-vasantharaj/ros2-rl-smart-navigation-turtlebot3.git
+cd ros2-rl-smart-navigation-turtlebot3
+```
+
+### Create the Python environment
+
+Using system site packages preserves access to the ROS 2 Python modules.
+
+```bash
+python3 -m venv --system-site-packages rl_venv
+source rl_venv/bin/activate
+python3 -m pip install --upgrade pip
+python3 -m pip install -r requirements.txt
+```
+
+### Install ROS dependencies
+
+```bash
+source /opt/ros/humble/setup.bash
+rosdep install --from-paths . --ignore-src --rosdistro humble -r -y
+```
+
+### Build the ROS 2 package
+
+Run the following commands from the parent workspace directory:
+
+```bash
+cd ..
+source /opt/ros/humble/setup.bash
+colcon build --base-paths ros2-rl-smart-navigation-turtlebot3 --packages-select nav2_rl_project --symlink-install
+source install/setup.bash
+```
+
+Verify that ROS 2 can discover the package:
+
+```bash
+ros2 pkg prefix nav2_rl_project
+```
+
+### Main simulation entry points
+
+- `scripts/train_stage4_nav2path_all_algorithms_v4.py`
+- `scripts/evaluate_stage4_nav2path_v4.py`
+- `scripts/run_policy_demo_v4.py`
+- `scripts/save_global_path_from_rviz.py`
+
+### Main real-hardware entry points
+
+- `scripts/run_real_policy_v4.py`
+- `scripts/run_real_experiment.sh`
+- `scripts/run_real_round_trip.sh`
+- `scripts/analyze_real_test.py`
+
+### Complete execution guides
+
+The simulation and hardware workflows require several ROS 2 terminals.
+The complete terminal-by-terminal commands are documented in:
+
+- [Reproducibility Guide](docs/REPRODUCIBILITY.md)
+- [Simulation-to-Real Workflow](docs/SIM_TO_REAL_WORKFLOW.md)
+- [Real TurtleBot3 Implementation](docs/REAL_HARDWARE_IMPLEMENTATION.md)
+- [Real TurtleBot3 Test Plan](docs/REAL_TURTLEBOT3_TEST_PLAN.md)
+- [Safety Layer](docs/SAFETY_LAYER.md)
+- [ROS 2 Interfaces](docs/ROS2_INTERFACES.md)
+- [Demonstration Videos](media/DEMO_VIDEO_LINKS.md)
 
 ## Important Scripts
 
@@ -135,9 +235,7 @@ nav2_rl_project/
 - `results/a2c_v4_evaluation_metrics_20ep_final.csv`
 - `results/qlearning_v4_evaluation_metrics_20ep_final.csv`
 
-The earlier five-episode pilot is retained separately as:
 
-- `results/v4_evaluation_summary_5ep.csv`
 
 ### Real TurtleBot3
 
@@ -235,7 +333,26 @@ Detailed documentation:
 - Repeat hardware trials under controlled conditions to obtain
   statistically meaningful real-world results.
 
+## Final Report
+
+The final IEEE-format project report is available here:
+
+- [TurtleBot3 RL Final Report](docs/final-report/TurtleBot3_RL_Final_Report_Submission.pdf)
+
 ## Authors
 
-- Mathiyalagan Vasantharaj
-- Isaac Vivin Moses
+- **Mathiyalagan Vasantharaj:** `mathiyalagan.vasantharaj@stud.th-deg.de`
+
+- **Isaac Vivin Moses:** `isaac.moses@stud.th-deg.de`
+
+Detailed responsibilities are documented in
+[Team Contributions](docs/TEAM_CONTRIBUTIONS.md).
+
+## Project Repository
+
+This repository contains the complete ROS 2 package, custom Gymnasium
+environment, simulation and real-hardware implementations, trained models,
+maps, saved global paths, experiment scripts, consolidated result summaries,
+technical documentation, and demonstration-video links.
+
+**Repository:** [ros2-rl-smart-navigation-turtlebot3](https://github.com/mathiyalagan-vasantharaj/ros2-rl-smart-navigation-turtlebot3)
